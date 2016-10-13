@@ -47,7 +47,7 @@ var TodoApp = React.createClass({
 
         this.setState({
             todos: updatedTodos
-        })
+        });
     },
     handleSearch: function (showCompleted, searchText) {
         this.setState({
