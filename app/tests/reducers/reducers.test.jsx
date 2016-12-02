@@ -37,9 +37,6 @@ describe('Reducers', () => {
         });
 
         it('should toggle todo properly', () => {
-            // define todo array with todo item generate action call reducer and assert
-            // complete flipped
-
             var todos = [
                 {
                     id: 11,
@@ -54,7 +51,7 @@ describe('Reducers', () => {
                 type: 'TOGGLE_TODO',
                 id: 11
             };
-            var res = reducers.todosReducer(todos, action);
+            var res = reducers.todosReducer(df(todos), df(action));
             expect(res[0].completed).toExist();
             expect(res[0].completedAt).toExist();
         });
@@ -76,7 +73,7 @@ describe('Reducers', () => {
                 type: 'TOGGLE_TODO',
                 id: 11
             };
-            var res = reducers.todosReducer(todos, action);
+            var res = reducers.todosReducer(df(todos), df(action));
             expect(res[0].completed).toBe(false);
             expect(res[0].completedAt).toNotExist();
         });
