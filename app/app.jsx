@@ -8,9 +8,16 @@ var TodoApp = require('TodoApp');
 var actions = require('actions');
 var store = require('configureStore').configure();
 
+var TodoAPI = require('TodoAPI');
+
 store.subscribe(() => {
-    console.log('new state', store.getState());
+    var state = store.getState();
+    console.log('New state is', state);
+    TodoAPI.setTodos(state.todos);
 });
+
+var initialTodos = TodoAPI.getTodos();
+store.dispatch(actions.addTodos(initialTodos));
 
 //load foundation
 $(document).foundation();
