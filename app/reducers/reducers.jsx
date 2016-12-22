@@ -25,8 +25,6 @@ export var todosReducer = (state = [], action) => {
             return [
                 ...state,
                 action.todo
-
-
             ];
         case 'TOGGLE_TODO':
             return state.map((todo) => {
